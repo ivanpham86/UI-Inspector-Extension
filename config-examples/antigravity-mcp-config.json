@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "vibe-inspector": {
+      "command": "/usr/local/bin/node",
+      "args": ["/ABSOLUTE/PATH/TO/vibe-mcp-server/index.js"]
+    }
+  }
+}

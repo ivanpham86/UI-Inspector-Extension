@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>UI Inspector Panel</title>
+<link rel="stylesheet" href="panel.css">
+</head>
+<body>
+<div class="topbar">
+  <div class="logo">
+    <div class="logo-icon"><svg viewBox="0 0 12 12" fill="none"><rect x="1" y="1" width="4" height="4" rx="1.2" fill="rgba(255,255,255,.9)"/><rect x="7" y="1" width="4" height="4" rx="1.2" fill="rgba(255,255,255,.5)"/><rect x="1" y="7" width="4" height="4" rx="1.2" fill="rgba(255,255,255,.5)"/><rect x="7" y="7" width="4" height="4" rx="1.2" fill="rgba(255,255,255,.9)"/></svg></div>
+    UI Inspector
+  </div>
+  <div class="dv"></div>
+  <div class="urlwrap"><div class="udot ok" id="udot"></div><span class="utext" id="utext">—</span></div>
+  <div class="bld" id="bld">ready</div>
+</div>
+<div class="main">
+  <div class="pane">
+    <div class="ptbar">
+      <div class="vpill">
+        <button class="vbtn on" id="vd"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="2" width="10" height="7" rx="1"/><path d="M4 9H8" stroke-linecap="round"/></svg>Desktop</button>
+        <button class="vbtn" id="vm"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3.5" y="1" width="5" height="10" rx="1"/><circle cx="6" cy="9.5" r=".5" fill="currentColor" stroke="none"/></svg>Mobile</button>
+      </div>
+      <div class="tshelf">
+        <button class="tbtn ti" id="bi"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1.5 1.5L5.5 11L7 7L11 5.5L1.5 1.5Z" stroke-linecap="round" stroke-linejoin="round"/></svg>Inspect <kbd>I</kbd></button>
+      </div>
+    </div>
+    <div class="ibox" id="ibox">
+      <iframe class="appfr" id="fr"></iframe>
+    </div>
+  </div>
+  <div class="rpanel">
+    <div class="ptabs">
+      <button class="ptab on" id="tab-btn-ins">Inspector</button>
+      <button class="ptab" id="tab-btn-log">Build</button>
+    </div>
+
+    <div class="pcont on" id="tab-ins">
+      <div class="iempty" id="iempty">
+        <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3L11 25L14 14L25 11L3 3Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <p>Press I and click any element on your app</p>
+      </div>
+      <div class="ires" id="ires" style="display:none">
+        <div class="isec">
+          <div class="isech">Component</div>
+          <div class="irow"><span class="ilbl">Name</span><span class="ival ac" id="rc"></span></div>
+          <div class="irow"><span class="ilbl">Tag</span><span class="ival" id="rt"></span></div>
+          <div class="irow"><span class="ilbl">Text</span><span class="ival" id="rtext" style="white-space:normal;line-height:1.4"></span></div>
+          <div class="irow"><span class="ilbl">Classes</span><span class="ival" id="rcls" style="white-space:normal;line-height:1.4;color:var(--amber)"></span></div>
+        </div>
+
+        <div class="isec" id="sec-source" style="display:none">
+          <div class="isech">Source</div>
+          <div class="irow"><span class="ilbl">File</span><span class="ival gr" id="rf"></span></div>
+          <div class="irow"><span class="ilbl">Line</span><span class="ival" id="rl"></span></div>
+          <div class="irow"><span class="ilbl">Selector</span><span class="ival" id="rs" style="font-size:10px"></span></div>
+        </div>
+
+        <div class="isec" id="sec-selector">
+          <div class="isech">Selector</div>
+          <div class="irow"><span class="ival" id="rs2" style="font-size:10px;font-family:var(--font)"></span></div>
+        </div>
+
+        <div class="isec">
+          <div class="isech">Computed</div>
+          <div class="irow"><span class="ilbl">Size</span><span class="ival" id="rsz"></span></div>
+          <div class="irow"><span class="ilbl">Color</span><span class="ival" id="rco"></span></div>
+          <div class="irow"><span class="ilbl">Bg Color</span><span class="ival" id="rbg"></span></div>
+          <div class="irow" id="row-font" style="display:none"><span class="ilbl">Font</span><span class="ival" id="rfo"></span></div>
+        </div>
+
+        <div class="aiarea">
+          <div class="ailbl">Context for AI</div>
+          <div class="ctxpre" id="ctxpre"></div>
+          <textarea class="aita" id="aireq" placeholder="Mô tả yêu cầu chỉnh sửa…"></textarea>
+          <div style="display:flex;gap:6px">
+            <button id="reinspect-btn" style="display:none;align-items:center;gap:5px;padding:0 10px;height:32px;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--text2);cursor:pointer;font-size:12px;flex-shrink:0" title="Chọn lại element">
+              <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" style="width:12px;height:12px"><path d="M1.5 7A5.5 5.5 0 1 0 4 2.5" stroke-linecap="round"/><path d="M1.5 1v3h3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Re-inspect
+            </button>
+            <button class="sndbtn" id="sndbtn" style="flex:1">
+              <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" style="width:13px;height:13px"><path d="M2 7H12M8 3L12 7L8 11" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Đồng bộ IDE
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcont" id="tab-log">
+      <div class="blog" id="blog"></div>
+    </div>
+  </div>
+</div>
+<div class="sbar">
+  <span class="si br">UI Inspector</span>
+  <span class="si" id="smode">Ready</span>
+  <span class="si" style="margin-left:auto" id="ssel">No element selected</span>
+</div>
+<script src="panel.js"></script>
+</body>
+</html>
