@@ -1,3 +1,5 @@
+<img width="4044" height="2243" alt="beautyshot_20260419_192456" src="https://github.com/user-attachments/assets/f54bf532-1542-40d5-9565-8b5230526624" />
+
 # Vibe Inspector
 
 **Eliminate the slow copy-paste loop in vibe coding.**
