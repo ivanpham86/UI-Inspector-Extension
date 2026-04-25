@@ -145,16 +145,16 @@
           <p>Nhấn <strong>Inspect</strong> rồi<br>click element bất kỳ trên trang</p>
         </div>
         <div id="vi-sel-list"></div>
-      </div>
-      <div id="vi-ins-ai" class="vi-ai-area" style="display:none">
-        <div class="vi-ai-lbl">Context for AI</div>
-        <pre class="vi-pre" id="vi-ins-ctx"></pre>
-        <button class="vi-send vi-send-a" id="vi-send-ins">
-          <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" width="13" height="13">
-            <path d="M2 7H12M8 3L12 7L8 11" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          Đồng bộ IDE
-        </button>
+        <div id="vi-ins-ai" class="vi-ai-area" style="display:none">
+          <div class="vi-ai-lbl">Context for AI</div>
+          <pre class="vi-pre" id="vi-ins-ctx"></pre>
+          <button class="vi-send vi-send-a" id="vi-send-ins">
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" width="13" height="13">
+              <path d="M2 7H12M8 3L12 7L8 11" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Đồng bộ IDE
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -240,7 +240,7 @@
 .vi-amber { color:#f59e0b; }
 .vi-ta { width:100%; margin-top:5px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08); border-radius:4px; padding:4px 6px; color:rgba(255,255,255,.75); font-size:10.5px; font-family:inherit; resize:none; height:36px; outline:none; line-height:1.4; }
 .vi-ta:focus { border-color:rgba(245,158,11,.35); }
-.vi-ai-area { flex-shrink:0; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07); border-radius:7px; padding:8px; margin:0 10px 10px; }
+.vi-ai-area { background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07); border-radius:7px; padding:8px; margin-top:4px; }
 .vi-ai-lbl { font-size:9.5px; text-transform:uppercase; letter-spacing:.6px; color:rgba(255,255,255,.28); font-weight:600; margin-bottom:4px; }
 .vi-pre { background:rgba(0,0,0,.3); border:1px solid rgba(255,255,255,.05); border-radius:3px; padding:5px 7px; font-size:9.5px; font-family:'SF Mono','Menlo',monospace; color:rgba(255,255,255,.45); white-space:pre-wrap; word-break:break-all; max-height:80px; overflow-y:auto; line-height:1.4; margin-bottom:5px; }
 .vi-send { display:flex; align-items:center; justify-content:center; gap:4px; width:100%; height:28px; border-radius:5px; border:none; font-size:11px; font-weight:600; font-family:inherit; cursor:pointer; }
